@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    {% for wind in Winds %}
+    <h1>{{ wind.SensorID }}</h1>
+    <p> By {{  post.author }} on P{{ post.date_post }}</p>
+    <p>{{ post.content }}</p>
+    {% endfor %}
+</body>
+</html>
+
