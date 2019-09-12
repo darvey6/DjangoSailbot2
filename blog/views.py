@@ -18,7 +18,7 @@ posts = [
 
 Winds = [
     {
-        'SensorID': 'Test',
+        'SensorID': 'TestID',
         'WindSpeed': 'Test Title',
         'WindDirection': 'Here is the content',
         'WindReference': 'August 27, 2018',
@@ -33,12 +33,21 @@ Winds = [
 
 WinchMotor = [
     {
-        'SensorID': 'Test',
-        'Current': 'August 27, 2018',
-        'Voltage': 'August 27, 2018',
-        'Temperature': 'August 27, 2018',
-        'Status': 'August 27, 2018',
-        'UpdatedTime': 'August 27, 2018'
+        'SensorID': '1',
+        'Current': '21',
+        'Voltage': '51',
+        'Temperature': '18',
+        'Status': 'on',
+        'UpdatedTime': 'August 27, 2018',
+        'Editable': 1,
+    },{
+        'SensorID': '2',
+        'Current': '65',
+        'Voltage': '56',
+        'Temperature': '15',
+        'Status': 'off',
+        'UpdatedTime': 'August 27, 2018',
+        'Editable': 1,
     }
 ]
 
@@ -100,7 +109,7 @@ BMS = [
     },
 ]
 
-Acceleratometer = [
+Accelerometer = [
     {
         'SensorID': 'Test',
         'x_pos': 'Test Title',
@@ -128,7 +137,13 @@ def about(request):
 
 def sensors(request):
     context={
-        'Winds': Winds
+        'Winds': Winds,
+        'WinchMotor': WinchMotor,
+        'RudderMotor': RudderMotor,
+        'GPS': GPS,
+        'BoomAngle': BoomAngle,
+        'BMS': BMS,
+        'Accelerometer': Accelerometer,
     }
     return render(request, 'blog/sensors.html', context)
 

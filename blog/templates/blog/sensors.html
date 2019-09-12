@@ -4,11 +4,201 @@
     <title></title>
 </head>
 <body>
+<table>
+    <h2><a href="{% url 'blog-home'%}">Wind Sensor</a></h2>
     {% for wind in Winds %}
-    <h1>{{ wind.SensorID }}</h1>
-    <p> By {{  post.author }} on P{{ post.date_post }}</p>
-    <p>{{ post.content }}</p>
+    <tr>
+        <th>SensorID</th>
+        <th>WindSpeed</th>
+        <th>WindDirection</th>
+        <th>WindReference</th>
+        <th>WindTemperature</th>
+        <th>Current</th>
+        <th>Voltage</th>
+        <th>Temperature</th>
+        <th>Status</th>
+        <th>UpdatedTime</th>
+    </tr>
+    <tr>
+        <td>{{wind.SensorID}}</td>
+        <td>{{wind.WindSpeed}}</td>
+        <td>{{wind.WindDirection}}</td>
+        <td>{{wind.WindReference}}</td>
+        <td>{{wind.WindTemperature}}</td>
+        <td>{{wind.Current}}</td>
+        <td>{{wind.Voltage}}</td>
+        <td>{{wind.Temperature}}</td>
+        <td>{{wind.Status}}</td>
+        <td>{{wind.UpdatedTime}}</td>
+    </tr>
     {% endfor %}
+</table>
+
+<table>
+    <h2><a href="{% url 'blog-home'%}">Winch Motor</a></h2>
+
+    <tr>
+        <th>SensorID</th>
+        <th>Current</th>
+        <th>Voltage</th>
+        <th>Temperature</th>
+        <th>Status</th>
+        <th>UpdatedTime</th>
+    </tr>
+    {% for winchmotor in WinchMotor %}
+    <tr>
+        <td>{{winchmotor.SensorID}}</td>
+        <td>{{winchmotor.Current}}</td>
+        <td>{{winchmotor.Voltage}}</td>
+        <td>{{winchmotor.Temperature}}</td>
+        <td>{{winchmotor.Status}}</td>
+        <td>{{winchmotor.UpdatedTime}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<table>
+    <h2><a href="{% url 'blog-home'%}">Rudder Motor</a></h2>
+    {% for ruddermotor in RudderMotor %}
+    <tr>
+        <th>SensorID</th>
+        <th>Current</th>
+        <th>Voltage</th>
+        <th>Temperature</th>
+        <th>Status</th>
+        <th>UpdatedTime</th>
+    </tr>
+    <tr>
+        <td>{{ruddermotor.SensorID}}</td>
+        <td>{{ruddermotor.Current}}</td>
+        <td>{{ruddermotor.Voltage}}</td>
+        <td>{{ruddermotor.Temperature}}</td>
+        <td>{{ruddermotor.Status}}</td>
+        <td>{{ruddermotor.UpdatedTime}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<table>
+    <h2><a href="{% url 'blog-home'%}">GPS</a></h2>
+    {% for gps in GPS %}
+    <tr>
+        <th>SensorID</th>
+        <th>Quality</th>
+        <th>HDOP</th>
+        <th>AntennaAltitude</th>
+        <th>GeoidalSeparation</th>
+        <th>Lat</th>
+        <th>Lon</th>
+        <th>GroundSpeed</th>
+        <th>TrackMadeGood</th>
+        <th>MagneticVariation</th>
+        <th>Voltage</th>
+        <th>Temperature</th>
+        <th>Status</th>
+        <th>UpdatedTime</th>
+    </tr>
+    <tr>
+        <td>{{gps.SensorID}}</td>
+        <td>{{gps.Quality}}</td>
+        <td>{{gps.HDOP}}</td>
+        <td>{{gps.AntennaAltitude}}</td>
+        <td>{{gps.GeoidalSeparation}}</td>
+        <td>{{gps.Lat}}</td>
+        <td>{{gps.Lon}}</td>
+        <td>{{gps.GroundSpeed}}</td>
+        <td>{{gps.TrackMadeGood}}</td>
+        <td>{{gps.MagneticVariation}}</td>
+        <td>{{gps.Voltage}}</td>
+        <td>{{gps.Temperature}}</td>
+        <td>{{gps.Status}}</td>
+        <td>{{gps.UpdatedTime}}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+<table>
+    <h2><a href="{% url 'blog-home'%}">Boom Angle</a></h2>
+    {% for boomangle in BoomAngle %}
+    <tr>
+        <th>SensorID</th>
+        <th>Angle</th>
+        <th>Current</th>
+        <th>Voltage</th>
+        <th>Temperature</th>
+        <th>Status</th>
+        <th>UpdatedTime</th>
+    </tr>
+    <tr>
+        <td>{{boomangle.SensorID}}</td>
+        <td>{{boomangle.Angle}}</td>
+        <td>{{boomangle.Current}}</td>
+        <td>{{boomangle.Voltage}}</td>
+        <td>{{boomangle.Temperature}}</td>
+        <td>{{boomangle.Status}}</td>
+        <td>{{boomangle.UpdatedTime}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<table>
+    <h2><a href="{% url 'blog-home'%}">BMS</a></h2>
+    {% for bms in BMS %}
+    <tr>
+        <th>SensorID</th>
+        <th>BatteryCurrent</th>
+        <th>BatteryTemperature</th>
+        <th>BatteryVoltage</th>
+        <th>Current</th>
+        <th>Voltage</th>
+        <th>Temperature</th>
+        <th>Status</th>
+        <th>UpdatedTime</th>
+    </tr>
+    <tr>
+        <td>{{bms.SensorID}}</td>
+        <td>{{bms.BatteryCurrent}}</td>
+        <td>{{bms.BatteryTemperature}}</td>
+        <td>{{bms.BatteryVoltage}}</td>
+        <td>{{bms.Current}}</td>
+        <td>{{bms.Voltage}}</td>
+        <td>{{bms.Temperature}}</td>
+        <td>{{bms.Status}}</td>
+        <td>{{bms.UpdatedTime}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<table>
+    <h2><a href="{% url 'blog-home'%}">Accelerometer</a></h2>
+    {% for accelerometer in Accelerometer %}
+    <tr>
+        <th>SensorID</th>
+        <th>x_pos</th>
+        <th>y_pos</th>
+        <th>z_pos</th>
+        <th>Current</th>
+        <th>Voltage</th>
+        <th>Temperature</th>
+        <th>Status</th>
+        <th>UpdatedTime</th>
+    </tr>
+    <tr>
+        <td>{{accelerometer.SensorID}}</td>
+        <td>{{accelerometer.x_pos}}</td>
+        <td>{{accelerometer.y_pos}}</td>
+        <td>{{accelerometer.z_pos}}</td>
+        <td>{{accelerometer.Current}}</td>
+        <td>{{accelerometer.Voltage}}</td>
+        <td>{{accelerometer.Temperature}}</td>
+        <td>{{accelerometer.Status}}</td>
+        <td>{{accelerometer.UpdatedTime}}</td>
+    </tr>
+    {% endfor %}
+</table>
 </body>
 </html>
 

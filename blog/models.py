@@ -77,3 +77,9 @@ class Wind(models.Model):
     Temperature = models.IntegerField()
     Status = models.BooleanField()
     UpdatedTime = models.DateTimeField(default=timezone.now)
+
+class ModifiableColumn(models.Model):
+    class Meta:
+        unique_together = (('SensorType', 'Column'),)
+    SensorType = models.CharField(max_length=100)
+    Column = models.CharField(max_length=100)
