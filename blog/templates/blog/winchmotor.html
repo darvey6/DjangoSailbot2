@@ -3,8 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<script>
+    function GetEdit(type, sensorID) {
+        console.log(type);
+       var param = new Object();
+        param.type = type;
+        param.sensorID = sensorID;
+            $.ajax({
+                type: "GET",
+                url: "",
+                contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                data: $.param(param),
+                success: function (data) {
+                    $('#data').html(data);
+                },
+                error: function (data) {
+                    $('#data').html(data);
+                }
+            });
+     }
+
+    function GetHistory(type, sensorID) {
+        console.log(sensorID);
+        var param = new Object();
+        param.type = type;
+        param.sensorID = sensorID;
+            $.ajax({
+                type: "GET",
+                url: "",
+                contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                data: $.param(param),
+                success: function (data) {
+                    $('#data').html(data);
+                },
+                error: function (data) {
+                    $('#data').html(data);
+                }
+            });
+        }
+</script>
 </head>
 <body>
+<table>
+    <h2><a href="{% url 'blog-home'%}">Winch Motor</a></h2>
+
+    <tr>
+        <th>SensorID</th>
+        <th>Current</th>
+        <th>Voltage</th>
+        <th>Temperature</th>
+        <th>Status</th>
+        <th>UpdatedTime</th>
+    </tr>
+    {% for winchmotor in WinchMotor %}
+    <tr>
+        <td>{{winchmotor.SensorID}}</td>
+        <td>{{winchmotor.Current}}</td>
+        <td>{{winchmotor.Voltage}}</td>
+        <td>{{winchmotor.Temperature}}</td>
+        <td>{{winchmotor.Status}}</td>
+        <td>{{winchmotor.UpdatedTime}}</td>
+        <td><button id="EditWinchMotor" onclick="GetEdit('WinchMotor', {{winchmotor.SensorID}})">Edit</button></td>
+        <td><button id="DetailsWinchMotor" onclick="GetHistory('WinchMotor', {{winchmotor.SensorID}})">History</button></td>
+    </tr>
+    {% endfor %}
+</table>
 
 </body>
 </html>
+

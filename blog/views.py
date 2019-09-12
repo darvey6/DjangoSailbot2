@@ -127,8 +127,14 @@ Accelerometer = [
 
 
 def home(request):
-    context= {
-        'posts': posts
+    context = {
+        'Winds': Winds,
+        'WinchMotor': WinchMotor,
+        'RudderMotor': RudderMotor,
+        'GPS': GPS,
+        'BoomAngle': BoomAngle,
+        'BMS': BMS,
+        'Accelerometer': Accelerometer,
     }
     return render(request, 'blog/home.html',context)
 
@@ -147,4 +153,8 @@ def sensors(request):
     }
     return render(request, 'blog/sensors.html', context)
 
-
+def winchmotor (request):
+    context={
+        'WinchMotor': WinchMotor,
+    }
+    return render(request, 'blog/winchmotor.html', context)

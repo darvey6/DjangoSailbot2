@@ -1,17 +1,626 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title></title>
+    <!-- Theme Made By www.w3schools.com -->
+    <title>UBC Sailbot</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font: 400 15px Lato, sans-serif;
+            line-height: 1.8;
+            color: #818181;
+        }
+
+        h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            color: #303030;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            color: #303030;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .jumbotron {
+            background-color: #58a1f4;
+            color: #fff;
+            padding: 100px 25px;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .container-fluid {
+            padding: 60px 50px;
+        }
+
+        .bg-grey {
+            background-color: #f6f6f6;
+        }
+
+        .logo-small {
+            color: #58a1f4;
+            font-size: 50px;
+        }
+
+        .logo {
+            color: #58a1f4;
+            font-size: 200px;
+        }
+
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+        }
+
+        .carousel-control.right, .carousel-control.left {
+            background-image: none;
+            color: #58a1f4;
+        }
+
+        .carousel-indicators li {
+            border-color: #58a1f4;
+        }
+
+        .carousel-indicators li.active {
+            background-color: #58a1f4;
+        }
+
+        .item h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: italic;
+            margin: 70px 0;
+        }
+
+        .item span {
+            font-style: normal;
+        }
+
+        .panel {
+            border: 1px solid #58a1f4;
+            border-radius: 0 !important;
+            transition: box-shadow 0.5s;
+        }
+
+        .panel:hover {
+            box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+        }
+
+        .panel-footer .btn:hover {
+            border: 1px solid #58a1f4;
+            background-color: #fff !important;
+            color: #58a1f4;
+        }
+
+        .panel-heading {
+            color: #fff !important;
+            background-color: #58a1f4 !important;
+            padding: 25px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .panel-footer {
+            background-color: white !important;
+        }
+
+        .panel-footer h3 {
+            font-size: 32px;
+        }
+
+        .panel-footer h4 {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .panel-footer .btn {
+            margin: 15px 0;
+            background-color: #58a1f4;
+            color: #fff;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+            background-color: #58a1f4;
+            z-index: 9999;
+            border: 0;
+            font-size: 12px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .navbar li a, .navbar .navbar-brand {
+            color: #fff !important;
+        }
+
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #58a1f4 !important;
+            background-color: #fff !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+
+        footer .glyphicon {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #58a1f4;
+        }
+
+        .slideanim {
+            visibility: hidden;
+        }
+
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+            }
+
+            .btn-lg {
+                width: 100%;
+                margin-bottom: 35px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo {
+                font-size: 150px;
+            }
+        }
+    </style>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet'/>
+
+
 </head>
-<body>
-    {% for post in posts %}
-    <h1>{{ post.title }}</h1>
-    <p> By {{  post.author }} on P{{ post.date_post }}</p>
-    <p>{{ post.content }}</p>
-    {% endfor %}
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">UBC SAILBOT</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#services">SENSORS</a></li>
+                <li><a href="#portfolio">WAYPOINT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron text-center">
+    <h1>Sailbot</h1>
+    <p>We specialize in sail boats</p>
+</div>
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>About UBC Sailbot</h2><br>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.</h4><br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-grey">
+    <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-8">
+            <h2></h2><br>
+            <h4><strong></strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+            <p><strong></strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid">
+    <h2>SENSORS</h2>
+
+    <div class="table-responsive">
+        <h2><a href="{% url 'blog-home'%}">Wind Sensor</a></h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>SensorID</th>
+                <th>WindSpeed</th>
+                <th>WindDirection</th>
+                <th>WindReference</th>
+                <th>WindTemperature</th>
+                <th>Current</th>
+                <th>Voltage</th>
+                <th>Temperature</th>
+                <th>Status</th>
+                <th>UpdatedTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for wind in Winds %}
+            <tr>
+                <td>{{wind.SensorID}}</td>
+                <td>{{wind.WindSpeed}}</td>
+                <td>{{wind.WindDirection}}</td>
+                <td>{{wind.WindReference}}</td>
+                <td>{{wind.WindTemperature}}</td>
+                <td>{{wind.Current}}</td>
+                <td>{{wind.Voltage}}</td>
+                <td>{{wind.Temperature}}</td>
+                <td>{{wind.Status}}</td>
+                <td>{{wind.UpdatedTime}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="table-responsive">
+        <h2><a href="{% url 'blog-winchmotor'%}">Winch Motor</a></h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>SensorID</th>
+                <th>Current</th>
+                <th>Voltage</th>
+                <th>Temperature</th>
+                <th>Status</th>
+                <th>UpdatedTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for winchmotor in WinchMotor %}
+            <tr>
+                <td>{{winchmotor.SensorID}}</td>
+                <td>{{winchmotor.Current}}</td>
+                <td>{{winchmotor.Voltage}}</td>
+                <td>{{winchmotor.Temperature}}</td>
+                <td>{{winchmotor.Status}}</td>
+                <td>{{winchmotor.UpdatedTime}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="table-responsive">
+        <h2><a href="{% url 'blog-home'%}">Rudder Motor</a></h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>SensorID</th>
+                <th>Current</th>
+                <th>Voltage</th>
+                <th>Temperature</th>
+                <th>Status</th>
+                <th>UpdatedTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ruddermotor in RudderMotor %}
+            <tr>
+                <td>{{ruddermotor.SensorID}}</td>
+                <td>{{ruddermotor.Current}}</td>
+                <td>{{ruddermotor.Voltage}}</td>
+                <td>{{ruddermotor.Temperature}}</td>
+                <td>{{ruddermotor.Status}}</td>
+                <td>{{ruddermotor.UpdatedTime}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <h2><a href="{% url 'blog-home'%}">GPS</a></h2>
+        <table class="table">
+            <thead>
+
+            <tr>
+                <th>SensorID</th>
+                <th>Quality</th>
+                <th>HDOP</th>
+                <th>AntennaAltitude</th>
+                <th>GeoidalSeparation</th>
+                <th>Lat</th>
+                <th>Lon</th>
+                <th>GroundSpeed</th>
+                <th>TrackMadeGood</th>
+                <th>MagneticVariation</th>
+                <th>Voltage</th>
+                <th>Temperature</th>
+                <th>Status</th>
+                <th>UpdatedTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for gps in GPS %}
+            <tr>
+                <td>{{gps.SensorID}}</td>
+                <td>{{gps.Quality}}</td>
+                <td>{{gps.HDOP}}</td>
+                <td>{{gps.AntennaAltitude}}</td>
+                <td>{{gps.GeoidalSeparation}}</td>
+                <td>{{gps.Lat}}</td>
+                <td>{{gps.Lon}}</td>
+                <td>{{gps.GroundSpeed}}</td>
+                <td>{{gps.TrackMadeGood}}</td>
+                <td>{{gps.MagneticVariation}}</td>
+                <td>{{gps.Voltage}}</td>
+                <td>{{gps.Temperature}}</td>
+                <td>{{gps.Status}}</td>
+                <td>{{gps.UpdatedTime}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <h2><a href="{% url 'blog-home'%}">Boom Angle</a></h2>
+        <table class="table">
+            <thead>
+
+            <tr>
+                <th>SensorID</th>
+                <th>Angle</th>
+                <th>Current</th>
+                <th>Voltage</th>
+                <th>Temperature</th>
+                <th>Status</th>
+                <th>UpdatedTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for boomangle in BoomAngle %}
+            <tr>
+                <td>{{boomangle.SensorID}}</td>
+                <td>{{boomangle.Angle}}</td>
+                <td>{{boomangle.Current}}</td>
+                <td>{{boomangle.Voltage}}</td>
+                <td>{{boomangle.Temperature}}</td>
+                <td>{{boomangle.Status}}</td>
+                <td>{{boomangle.UpdatedTime}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <h2><a href="{% url 'blog-home'%}">BMS</a></h2>
+        <table class="table">
+            <thead>
+
+            <tr>
+                <th>SensorID</th>
+                <th>BatteryCurrent</th>
+                <th>BatteryTemperature</th>
+                <th>BatteryVoltage</th>
+                <th>Current</th>
+                <th>Voltage</th>
+                <th>Temperature</th>
+                <th>Status</th>
+                <th>UpdatedTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for bms in BMS %}
+            <tr>
+                <td>{{bms.SensorID}}</td>
+                <td>{{bms.BatteryCurrent}}</td>
+                <td>{{bms.BatteryTemperature}}</td>
+                <td>{{bms.BatteryVoltage}}</td>
+                <td>{{bms.Current}}</td>
+                <td>{{bms.Voltage}}</td>
+                <td>{{bms.Temperature}}</td>
+                <td>{{bms.Status}}</td>
+                <td>{{bms.UpdatedTime}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <h2><a href="{% url 'blog-home'%}">Accelerometer</a></h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>SensorID</th>
+                <th>x_pos</th>
+                <th>y_pos</th>
+                <th>z_pos</th>
+                <th>Current</th>
+                <th>Voltage</th>
+                <th>Temperature</th>
+                <th>Status</th>
+                <th>UpdatedTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for accelerometer in Accelerometer %}
+            <tr>
+                <td>{{accelerometer.SensorID}}</td>
+                <td>{{accelerometer.x_pos}}</td>
+                <td>{{accelerometer.y_pos}}</td>
+                <td>{{accelerometer.z_pos}}</td>
+                <td>{{accelerometer.Current}}</td>
+                <td>{{accelerometer.Voltage}}</td>
+                <td>{{accelerometer.Temperature}}</td>
+                <td>{{accelerometer.Status}}</td>
+                <td>{{accelerometer.UpdatedTime}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+    <div id='map' style='width: 1600px; height: 600px; left: 5%;  right: 5%;'></div>
+</div>
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid">
+    <h2 class="text-center">CONTACT</h2>
+    <div class="row">
+        <div class="col-sm-5">
+            <p><span class="glyphicon glyphicon-map-marker"></span> Vancouver, BC, Canada</p>
+            <p><span class="glyphicon glyphicon-envelope"></span> captain@ubcsailbot.org</p>
+        </div>
+        <div class="col-sm-7 slideanim">
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="name" name="name" placeholder="Name"
+                           type="text" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="email" name="email" placeholder="Email"
+                           type="email" required>
+                </div>
+            </div>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment"
+                      rows="5"></textarea><br>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <button class="btn btn-default pull-right" type="submit">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+</footer>
+
+<script>
+    $(document).ready(function () {
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 900, function () {
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+
+        $(window).scroll(function () {
+            $(".slideanim").each(function () {
+                var pos = $(this).offset().top;
+
+                var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                }
+            });
+        });
+    })
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpbGJvdDIwMTkxMjEyIiwiYSI6ImNrMGc2cWdjMDA0ZGkzZ216cnFwNHp5eXEifQ.LMDZ6E4bV-eBbr5xGaY8Jw';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11'
+    });
+</script>
+
 </body>
 </html>
-
-
-
-
