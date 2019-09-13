@@ -169,10 +169,10 @@ def home(request):
         'Navbar': navHome,
         'PageName': 'Sailbot'
     }
-    return render(request, 'blog/home.html',context)
+    return render(request, 'sailbot/home.html',context)
 
 def about(request):
-    return render(request, 'blog/about.html')
+    return render(request, 'sailbot/about.html')
 
 
 def winchmotor (request):
@@ -181,4 +181,4 @@ def winchmotor (request):
         'Navbar': navWinch,
         'PageName': 'Winch Motor'
     }
-    return render(request, 'blog/winchmotor.html', context)
+    return render(request, 'sailbot/winchmotor.html', context)

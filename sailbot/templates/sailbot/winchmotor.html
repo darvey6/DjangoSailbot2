@@ -1,4 +1,4 @@
-{% extends "blog/base.html" %}
+{% extends "sailbot/base.html" %}
 {% block content %}
 
 
@@ -55,7 +55,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'blog-home' %}">HOME</a></li>
+                <li><a href="{% url 'sailbot-home' %}">HOME</a></li>
                 {% for nav in Navbar %}
                   <li><a href="{{ nav.url }}">{{ nav.name }}</a></li>
                 {% endfor %}
@@ -69,7 +69,7 @@
 </div>
   <div id="services" class="container-fluid">
 <div class="table-responsive">
-    <h2><a href="{% url 'blog-winchmotor'%}">Winch Motor</a></h2>
+    <h2><a href="{% url 'sailbot-winchmotor'%}">Winch Motor</a></h2>
     <table class="table">
         <thead>
         <tr>
