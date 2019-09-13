@@ -1,76 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends "blog/base.html" %}
+{% block content %}
+
+
 <script>
     function GetEdit(type, sensorID) {
         console.log(type);
-       var param = new Object();
+        var param = new Object();
         param.type = type;
         param.sensorID = sensorID;
-            $.ajax({
-                type: "GET",
-                url: "",
-                contentType: "application/json; charset=utf-8",
-                dataType: "html",
-                data: $.param(param),
-                success: function (data) {
-                    $('#data').html(data);
-                },
-                error: function (data) {
-                    $('#data').html(data);
-                }
-            });
-     }
+        $.ajax({
+            type: "GET",
+            url: "",
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            data: $.param(param),
+            success: function (data) {
+                $('#data').html(data);
+            },
+            error: function (data) {
+                $('#data').html(data);
+            }
+        });
+    }
 
     function GetHistory(type, sensorID) {
         console.log(sensorID);
         var param = new Object();
         param.type = type;
         param.sensorID = sensorID;
-            $.ajax({
-                type: "GET",
-                url: "",
-                contentType: "application/json; charset=utf-8",
-                dataType: "html",
-                data: $.param(param),
-                success: function (data) {
-                    $('#data').html(data);
-                },
-                error: function (data) {
-                    $('#data').html(data);
-                }
-            });
-        }
+        $.ajax({
+            type: "GET",
+            url: "",
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            data: $.param(param),
+            success: function (data) {
+                $('#data').html(data);
+            },
+            error: function (data) {
+                $('#data').html(data);
+            }
+        });
+    }
 </script>
-</head>
-<body>
-<table>
-    <h2><a href="{% url 'blog-home'%}">Winch Motor</a></h2>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">UBC SAILBOT</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'blog-home' %}">HOME</a></li>
+                {% for nav in Navbar %}
+                  <li><a href="{{ nav.url }}">{{ nav.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>
+  <div class="jumbotron text-center">
+    <h1>{{ PageName }}</h1>
+    <p>We specialize in autonomous sail boats</p>
+</div>
+  <div id="services" class="container-fluid">
+<div class="table-responsive">
+    <h2><a href="{% url 'blog-winchmotor'%}">Winch Motor</a></h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>SensorID</th>
+            <th>Current</th>
+            <th>Voltage</th>
+            <th>Temperature</th>
+            <th>Status</th>
+            <th>UpdatedTime</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for winchmotor in WinchMotor %}
+        <tr>
+            <td>{{winchmotor.SensorID}}</td>
+            <td>{{winchmotor.Current}}</td>
+            <td>{{winchmotor.Voltage}}</td>
+            <td>{{winchmotor.Temperature}}</td>
+            <td>{{winchmotor.Status}}</td>
+            <td>{{winchmotor.UpdatedTime}}</td>
+<!--            <td>-->
+<!--                <button id="EditWinchMotor" onclick="GetEdit('WinchMotor', {{winchmotor.SensorID}})">Edit</button>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <button id="DetailsWinchMotor" onclick="GetHistory('WinchMotor', {{winchmotor.SensorID}})">History-->
+<!--                </button>-->
+<!--            </td>-->
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+  </div>
 
-    <tr>
-        <th>SensorID</th>
-        <th>Current</th>
-        <th>Voltage</th>
-        <th>Temperature</th>
-        <th>Status</th>
-        <th>UpdatedTime</th>
-    </tr>
-    {% for winchmotor in WinchMotor %}
-    <tr>
-        <td>{{winchmotor.SensorID}}</td>
-        <td>{{winchmotor.Current}}</td>
-        <td>{{winchmotor.Voltage}}</td>
-        <td>{{winchmotor.Temperature}}</td>
-        <td>{{winchmotor.Status}}</td>
-        <td>{{winchmotor.UpdatedTime}}</td>
-        <td><button id="EditWinchMotor" onclick="GetEdit('WinchMotor', {{winchmotor.SensorID}})">Edit</button></td>
-        <td><button id="DetailsWinchMotor" onclick="GetHistory('WinchMotor', {{winchmotor.SensorID}})">History</button></td>
-    </tr>
-    {% endfor %}
-</table>
-
-</body>
-</html>
-
+{% endblock content %}

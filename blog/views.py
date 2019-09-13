@@ -123,8 +123,39 @@ Accelerometer = [
     },
 ]
 
+navHome  = [
+    {
+        'name': 'ABOUT',
+        'url': '#about',
+    },
+    {
+        'name': 'SENSORS',
+        'url': '#services',
+    },
+    {
+        'name': 'WAYPOINT',
+        'url': '#portfolio',
+    },
+    {
+        'name': 'CONTACT',
+        'url': '#contact',
+    },
+]
 
-
+navWinch = [
+    {
+        'name': 'DATA',
+        'url': '#Data',
+    },
+    {
+        'name': 'FORM',
+        'url': '#Forme',
+    },
+    {
+        'name': 'HISTORY',
+        'url': '#History',
+    },
+]
 
 def home(request):
     context = {
@@ -135,26 +166,19 @@ def home(request):
         'BoomAngle': BoomAngle,
         'BMS': BMS,
         'Accelerometer': Accelerometer,
+        'Navbar': navHome,
+        'PageName': 'Sailbot'
     }
     return render(request, 'blog/home.html',context)
 
 def about(request):
     return render(request, 'blog/about.html')
 
-def sensors(request):
-    context={
-        'Winds': Winds,
-        'WinchMotor': WinchMotor,
-        'RudderMotor': RudderMotor,
-        'GPS': GPS,
-        'BoomAngle': BoomAngle,
-        'BMS': BMS,
-        'Accelerometer': Accelerometer,
-    }
-    return render(request, 'blog/sensors.html', context)
 
 def winchmotor (request):
     context={
         'WinchMotor': WinchMotor,
+        'Navbar': navWinch,
+        'PageName': 'Winch Motor'
     }
     return render(request, 'blog/winchmotor.html', context)
