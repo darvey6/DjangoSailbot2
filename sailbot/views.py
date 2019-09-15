@@ -16,7 +16,7 @@ posts = [
     }
 ]
 
-Winds = [
+Wind = [
     {
         'SensorID': 'TestID',
         'WindSpeed': 'Test Title',
@@ -182,3 +182,52 @@ def winchmotor (request):
         'PageName': 'Winch Motor'
     }
     return render(request, 'sailbot/winchmotor.html', context)
+
+def accelerometer (request):
+    context={
+        'Accelerometer': Accelerometer,
+        'Navbar': navWinch,
+        'PageName': 'Winch Motor'
+    }
+    return render(request, 'sailbot/accelerometer.html', context)
+
+def bms (request):
+    context={
+        'BMS': BMS,
+        'Navbar': navWinch,
+        'PageName': 'Winch Motor'
+    }
+    return render(request, 'sailbot/bms.html', context)
+
+def boomangle (request):
+    context={
+        'Boomangle': BoomAngle,
+        'Navbar': navWinch,
+        'PageName': 'Winch Motor'
+    }
+    return render(request, 'sailbot/boomangle.html', context)
+
+def gps (request):
+    context={
+        'GPS': GPS,
+        'Navbar': navWinch,
+        'PageName': 'Winch Motor'
+    }
+    return render(request, 'sailbot/gps.html', context)
+
+
+def ruddermotor (request):
+    context={
+        'Ruddermotor': RudderMotor,
+        'Navbar': navWinch,
+        'PageName': 'Winch Motor'
+    }
+    return render(request, 'sailbot/ruddermotor.html', context)
+
+def wind (request):
+    context={
+        'Wind': Wind,
+        'Navbar': navWinch,
+        'PageName': 'Winch Motor'
+    }
+    return render(request, 'sailbot/wind.html', context)

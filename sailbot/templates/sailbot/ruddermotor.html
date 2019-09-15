@@ -69,7 +69,7 @@
 </div>
   <div id="services" class="container-fluid">
 <div class="table-responsive">
-    <h2><a href="{% url 'sailbot-winchmotor'%}">Winch Motor</a></h2>
+    <h2><a href="{% url 'sailbot-ruddermotor'%}">Winch Motor</a></h2>
     <table class="table">
         <thead>
         <tr>
@@ -82,19 +82,19 @@
         </tr>
         </thead>
         <tbody>
-        {% for winchmotor in WinchMotor %}
+        {% for ruddermotor in ruddermotor %}
         <tr>
-            <td>{{winchmotor.SensorID}}</td>
-            <td>{{winchmotor.Current}}</td>
-            <td>{{winchmotor.Voltage}}</td>
-            <td>{{winchmotor.Temperature}}</td>
-            <td>{{winchmotor.Status}}</td>
-            <td>{{winchmotor.UpdatedTime}}</td>
+            <td>{{ruddermotor.SensorID}}</td>
+            <td>{{ruddermotor.Current}}</td>
+            <td>{{ruddermotor.Voltage}}</td>
+            <td>{{ruddermotor.Temperature}}</td>
+            <td>{{ruddermotor.Status}}</td>
+            <td>{{ruddermotor.UpdatedTime}}</td>
 <!--            <td>-->
-<!--                <button id="EditWinchMotor" onclick="GetEdit('WinchMotor', {{winchmotor.SensorID}})">Edit</button>-->
+<!--                <button id="Editruddermotor" onclick="GetEdit('ruddermotor', {{ruddermotor.SensorID}})">Edit</button>-->
 <!--            </td>-->
 <!--            <td>-->
-<!--                <button id="DetailsWinchMotor" onclick="GetHistory('WinchMotor', {{winchmotor.SensorID}})">History-->
+<!--                <button id="Detailsruddermotor" onclick="GetHistory('ruddermotor', {{ruddermotor.SensorID}})">History-->
 <!--                </button>-->
 <!--            </td>-->
         </tr>
