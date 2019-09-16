@@ -159,7 +159,7 @@ navWinch = [
 
 def home(request):
     context = {
-        'Winds': Winds,
+        'Winds': Wind,
         'WinchMotor': WinchMotor,
         'RudderMotor': RudderMotor,
         'GPS': GPS,
