@@ -142,7 +142,7 @@ navHome  = [
     },
 ]
 
-navWinch = [
+navSensor = [
     {
         'name': 'DATA',
         'url': '#Data',
@@ -178,7 +178,7 @@ def about(request):
 def winchmotor (request):
     context={
         'WinchMotor': WinchMotor,
-        'Navbar': navWinch,
+        'Navbar': navSensor,
         'PageName': 'Winch Motor'
     }
     return render(request, 'sailbot/winchmotor.html', context)
@@ -186,7 +186,7 @@ def winchmotor (request):
 def accelerometer (request):
     context={
         'Accelerometer': Accelerometer,
-        'Navbar': navWinch,
+        'Navbar': navSensor,
         'PageName': 'Winch Motor'
     }
     return render(request, 'sailbot/accelerometer.html', context)
@@ -194,7 +194,7 @@ def accelerometer (request):
 def bms (request):
     context={
         'BMS': BMS,
-        'Navbar': navWinch,
+        'Navbar': navSensor,
         'PageName': 'Winch Motor'
     }
     return render(request, 'sailbot/bms.html', context)
@@ -202,7 +202,7 @@ def bms (request):
 def boomangle (request):
     context={
         'Boomangle': BoomAngle,
-        'Navbar': navWinch,
+        'Navbar': navSensor,
         'PageName': 'Winch Motor'
     }
     return render(request, 'sailbot/boomangle.html', context)
@@ -210,7 +210,7 @@ def boomangle (request):
 def gps (request):
     context={
         'GPS': GPS,
-        'Navbar': navWinch,
+        'Navbar': navSensor,
         'PageName': 'Winch Motor'
     }
     return render(request, 'sailbot/gps.html', context)
@@ -219,7 +219,7 @@ def gps (request):
 def ruddermotor (request):
     context={
         'Ruddermotor': RudderMotor,
-        'Navbar': navWinch,
+        'Navbar': navSensor,
         'PageName': 'Winch Motor'
     }
     return render(request, 'sailbot/ruddermotor.html', context)
@@ -227,7 +227,7 @@ def ruddermotor (request):
 def wind (request):
     context={
         'Wind': Wind,
-        'Navbar': navWinch,
+        'Navbar': navSensor,
         'PageName': 'Winch Motor'
     }
     return render(request, 'sailbot/wind.html', context)
