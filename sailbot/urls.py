@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name='sailbot-home'),
     path('about/', views.about, name='sailbot-about'),
-    path('wind/', views.winchmotor, name='sailbot-wind'),
+    path('wind/', views.wind, name='sailbot-wind'),
     path('winchmotor/', views.winchmotor, name='sailbot-winchmotor'),
     path('ruddermotor/', views.winchmotor, name='sailbot-ruddermotor'),
     path('gps/', views.winchmotor, name='sailbot-gps'),

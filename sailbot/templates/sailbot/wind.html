@@ -82,7 +82,7 @@
         </tr>
         </thead>
         <tbody>
-        {% for wind in wind %}
+        {% for wind in Wind %}
         <tr>
             <td>{{wind.SensorID}}</td>
             <td>{{wind.Current}}</td>
@@ -90,17 +90,16 @@
             <td>{{wind.Temperature}}</td>
             <td>{{wind.Status}}</td>
             <td>{{wind.UpdatedTime}}</td>
-<!--            <td>-->
-<!--                <button id="Editwind" onclick="GetEdit('wind', {{wind.SensorID}})">Edit</button>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--                <button id="Detailswind" onclick="GetHistory('wind', {{wind.SensorID}})">History-->
-<!--                </button>-->
-<!--            </td>-->
         </tr>
         {% endfor %}
         </tbody>
     </table>
+
+        {% for d in Dict %}}
+        <p>
+            {{d}}
+        </p>
+    {% endfor %}
 </div>
   </div>
 

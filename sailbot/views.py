@@ -1,5 +1,7 @@
+
 from django.shortcuts import render
 # Create your views here.
+from sailbot import models
 
 posts = [
     {
@@ -93,6 +95,8 @@ BoomAngle = [
         'Status': 'August 27, 2018',
         'UpdatedTime': 'August 27, 2018'
     }
+
+
 ]
 
 BMS = [
@@ -225,9 +229,18 @@ def ruddermotor (request):
     return render(request, 'sailbot/ruddermotor.html', context)
 
 def wind (request):
+
+
+    dict = props(models.Wind)
     context={
+        'Dict': dict,
         'Wind': Wind,
         'Navbar': navSensor,
         'PageName': 'Winch Motor'
     }
+
+
     return render(request, 'sailbot/wind.html', context)
+def props(cls):
+  return [i for i in cls.__dict__.keys() if i[:1] != '_']
+
