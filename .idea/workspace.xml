@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="089483f6-7a4e-4945-a8e4-f2be9e9040f2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sailbot/templates/sailbot/wind.html" beforeDir="false" afterPath="$PROJECT_DIR$/sailbot/templates/sailbot/wind.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sailbot/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sailbot/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sailbot/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sailbot/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +76,8 @@
       <workItem from="1568261156128" duration="9900000" />
       <workItem from="1568601223237" duration="125000" />
       <workItem from="1568601386140" duration="2236000" />
-      <workItem from="1569112616855" duration="568000" />
+      <workItem from="1569112616855" duration="826000" />
+      <workItem from="1569647749596" duration="57000" />
     </task>
     <servers />
   </component>
